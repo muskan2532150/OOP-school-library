@@ -26,3 +26,4 @@ class Person < Nameable
     @gae >= 18
   end
 end
+
