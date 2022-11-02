@@ -1,3 +1,4 @@
+require 'person.rb'
 class Student < Person
     def initialize(age,name,parent_permission,classroom)
         super(age,name,parent_permission)
