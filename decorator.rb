@@ -1,3 +1,3 @@
-require 'nameable.rb'
+require 'nameable'
 class Decorator < Nameable
 end
