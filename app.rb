@@ -1,3 +1,7 @@
+require './book'
+require './person'
+require './rental'
+
 class App 
     @books=[]
     @rental = []
@@ -46,4 +50,21 @@ class App
 
     puts "The teacher '#{name}' aged '#{age}' with specialization in '#{specialization}' was created successfully "
   end
-  
+
+  def list_books
+    if @book.length.zero?
+      puts "No book found" 
+    else
+      @book.each do |book|
+        puts "Title: #{book.title} Author: #{book.author}" 
+      end
+    end
+  end
+
+  def list_persons
+    if @person.length.zero?
+      puts "No person detail found"
+    else
+      person.each do |person|
+        puts "Name: #{person.name} ID: #{person.Id} AGE: #{person.age} "
+end
