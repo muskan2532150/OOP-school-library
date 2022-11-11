@@ -1,62 +1,68 @@
-require './book'
-require './person'
-require './rental'
+require_relative './person'
+require_relative './student'
+require_relative './teacher'
+require_relative './book'
+require_relative './rental'
 
 class App 
+  def initialize
     @books=[]
-    @rental = []
+    @rentals = []
     @person=[]
+  end
 
     def create_book
-        puts "Title: "
+        print "Title: "
         title=gets.chomp
-        puts "Author: "
+        print "Author: "
         author=gets.chomp
         book=Book.new(title,author)
         @books.push(book) unless @books.include?(book)
-        puts "Tilte : #{title} and author: #{author} was created successfully"
+        puts "Record is created successfully!!"
     end
 
     def create_student
-        puts 'Age: '
-    age = gets.chomp.to_i
+        print 'Age: '
+        age = gets.chomp
 
-    puts 'Classroom: '
-    classroom = gets.chomp
+        print 'Classroom: '
+        classroom = gets.chomp
 
-    puts 'Name: '
-    name = gets.chomp
+        print 'Name: '
+        name = gets.chomp
+        
+        print 'Has Parent Permission (true/false): '
+        has_permission = gets.chomp
 
-    has_permission = permission?
+        student = Student.new(name,age.to_i,has_permission,classroom)
+        @person.push(student) unless @person.include?(student)
 
-    student = Student.new(name,age,has_permission,classroom)
-    @person << student unless @person.include?(student)
-
-    puts "The student '#{name}' aged '#{age}' with the classroom '#{classroom}' was created successfully"
+        puts "Record is created successfully!!"
   end
 
   def create_teacher
-    puts 'Age: '
-    age = gets.chomp.to_i
+    print 'Age: '
+    age = gets.chomp
 
-    puts 'Specialization: '
+    print 'Specialization: '
     specialization = gets.chomp
 
-    puts 'Name: '
+    print 'Name: '
     name = gets.chomp
 
-    teacher = Teacher.new(name,age,specialization)
-    @person << teacher unless @person.include?(teacher)
+    teacher = Teacher.new(name,age.to_i,nil,specialization)
+    @person.push(teacher) unless @person.include?(teacher)
 
-    puts "The teacher '#{name}' aged '#{age}' with specialization in '#{specialization}' was created successfully "
+    puts "Record is created successfully!! "
   end
 
   def list_books
-    if @book.length.zero?
+    if @books.length.zero?
       puts "No book found" 
     else
-      @book.each do |book|
-        puts "Title: #{book.title} Author: #{book.author}" 
+      puts ""
+      @books.each_with_index do |book,index|
+        puts "#{index}) Title: #{book.title}   Author: #{book.author}" 
       end
     end
   end
@@ -65,6 +71,43 @@ class App
     if @person.length.zero?
       puts "No person detail found"
     else
-      person.each do |person|
-        puts "Name: #{person.name} ID: #{person.Id} AGE: #{person.age} "
+      puts ""
+      @person.each_with_index do |persons,index|
+        puts "#{index}) [Student] Name: #{persons.name} ID: #{persons.id} AGE: #{persons.age}"  if persons.is_a?(Student)
+        puts "#{index}) [Teacher] Name: #{persons.name} ID: #{persons.id} AGE: #{persons.age}"  if persons.is_a?(Teacher)
+        end
+      end
+    end
+
+  def list_rentals
+   if @rentals.length.zero?
+    puts "No rental found for books" 
+   else
+    puts ""
+    print "ID of a person: "
+    id= gets.chomp
+    @rentals.each do |rental|
+      if rental.person.id.to_i == id.to_i
+        puts "Date: #{rental.date} Book: #{rental.book.title} by #{rental.book.author}"
+        else
+          puts "No rental found, Please create record"
+        end
+    end
+    end
+  end
+
+  def create_rentals
+    puts "Select a book from following list by number"
+    list_books
+    ch=gets.chomp.to_i
+    puts "Select a person with the following list by number"
+    list_persons
+    selected_people=gets.chomp.to_i
+    puts ''
+    print "Date: "
+    date=gets.chomp.to_i
+    rental = Rental.new(date,@person[selected_people],@books[ch])
+    @rentals.push(rental) unless @rentals.include?(rental)
+    puts "Record is created successfully!!"
+  end
 end
