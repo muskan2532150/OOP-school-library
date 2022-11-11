@@ -1,6 +1,4 @@
-require './nameable'
-
-class Person < Nameable
+class Person
   attr_accessor :name, :age, :rentals
   attr_reader :id
 
@@ -21,8 +19,8 @@ class Person < Nameable
     of_age? || @parent_permission
   end
 
-  def add_rental(person, date)
-    rental = Rental.new(date, self, person)
+  def add_rental(book, date)
+    rental = Rental.new(date, self, book)
     @rentals.push(rental)
   end
 
