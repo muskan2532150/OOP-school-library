@@ -46,7 +46,7 @@ def opt_cases(char)
     @method.list_rentals
   when '7'
     puts ''
-    print 'Thank you for using this App'
+    print 'Thank you for using this App!!!'
   else
     puts ''
     print 'Invalid choice'

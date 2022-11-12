@@ -13,26 +13,24 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 - You need to have Code Editor Installed
-- Make sure Nodejs and NPM is installed in your system for linters and libraries
+- Make sure Ruby is installed in your system 
 
 ### Setup
 1. Clone the repo in your local machine:
 ```bash
 https://github.com/muskan2532150/OOP-school-library.git
 ```
-2. Open terminal and cd into project and install the dependencies
+2. Open terminal and cd into project 
 ```bash
 cd OOP-school-library
-npm install
 ```
 
-3. run the command to open your index.html automatically in your brower:
+3. Command to run the files
 ```bash
-npm run build
-npm start
+ run main.rb
 ```
 
-## Authors
+## Author
 
 👤 **Muskan Gupta**
 

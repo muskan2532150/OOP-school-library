@@ -96,7 +96,7 @@ class App
     selected_people = gets.chomp.to_i
     puts ''
     print 'Date: '
-    date = gets.chomp.to_i
+    date = gets.chomp
     rental = Rental.new(date, @person[selected_people], @books[ch])
     @rentals.push(rental) unless @rentals.include?(rental)
     puts 'Record is created successfully!!'
