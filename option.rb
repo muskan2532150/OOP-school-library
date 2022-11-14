@@ -6,17 +6,17 @@ class DisplayOption
   end
 
   def option
-    puts ''
-    puts 'Please choose an option by entering a number: '
-    puts '1. List all books'
-    puts '2. List all people'
-    puts '3. Create a person'
-    puts '4. Create a book'
-    puts '5. Create a rental'
-    puts '6. List all rental for given person id'
-    puts '7. Exit'
-    puts ''
-    print 'Your Choice: '
+    puts """
+    Please choose an option by entering a number: 
+    1. List all books
+    2. List all people
+    3. Create a person
+    4. Create a book
+    5. Create a rental
+    6. List all rental for given person id
+    7. Exit
+    
+    Your Choice: """
   end
 
   def create_person

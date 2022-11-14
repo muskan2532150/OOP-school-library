@@ -24,14 +24,6 @@ module CreateElement
 
   def create_teacher
     outputs = inputs(['Age: ', 'Specialization: ', 'Name: '])
-
-    # print 'Age: '
-    # age = gets.chomp
-    # print 'Specialization: '
-    # specialization = gets.chomp
-    # print 'Name: '
-    # name = gets.chomp
-    # teacher = Teacher.new(name, age.to_i, nil, specialization)
     teacher = Teacher.new(outputs[2], outputs[0].to_i, nil, outputs[1])
     @person.push(teacher) unless @person.include?(teacher)
     puts 'Record is created successfully!! '
