@@ -6,8 +6,8 @@ class DisplayOption
   end
 
   def option
-    puts """
-    Please choose an option by entering a number: 
+    puts "
+    Please choose an option by entering a number:
     1. List all books
     2. List all people
     3. Create a person
@@ -15,8 +15,8 @@ class DisplayOption
     5. Create a rental
     6. List all rental for given person id
     7. Exit
-    
-    Your Choice: """
+
+    Your Choice: "
   end
 
   def create_person
