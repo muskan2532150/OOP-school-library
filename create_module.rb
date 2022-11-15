@@ -39,6 +39,8 @@ module CreateElement
     puts ''
     date = inputs(['Date: '])
     rental = Rental.new(date, @person[selected_people], @books[ch])
+    @rental_json.push({ 'date' => date, 'person_index' => selected_people, 'book_index' => ch })
+    File.write('./rental.json', @rental_json.to_json)
     @rentals.push(rental) unless @rentals.include?(rental)
     puts 'Record is created successfully!!'
   end
