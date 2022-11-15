@@ -5,6 +5,14 @@ class DisplayOption
     @method = App.new
   end
 
+  def save
+    @method.save
+  end
+
+  def load
+    @method.load
+  end
+
   def option
     puts "
     Please choose an option by entering a number:
