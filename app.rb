@@ -18,10 +18,21 @@ class App
   end
 
   def load
+    ## Load books
     file_data = File.read('books.json')
     books = JSON.parse(file_data)
     books.each do |book|
       @books.push(Book.new(book['Title'], book['Author']))
+    end 
+    ## Load person
+    file_data = File.read('persons.json')
+    persons = JSON.parse(file_data)
+    persons.each do |person|
+      if(person['role'] == 'Student')
+        @person.push(Student.new(person['name'], person['age'], person['parent_permission'], person['classroom']))
+      else
+        @person.push(Teacher.new(person['name'], person['age'], person['parent_permission'], person['specialization']))
+      end
     end
   end
 
@@ -36,10 +47,10 @@ class App
     @person.each do |person|
       if person.instance_of?(::Student)
         persons.push({ 'name' => person.name, 'age' => person.age, 'parent_permission' => person.parent_permission,
-                       'classroom' => person.classroom })
+                       'classroom' => person.classroom, 'role' => 'Student' })
       else
         persons.push({ 'name' => person.name, 'age' => person.age, 'parent_permission' => person.parent_permission,
-                       'specialization' => person.specialization })
+                       'specialization' => person.specialization, 'role' => 'Teacher' })
       end
     end
     File.open('persons.json', 'w') { |f| f.puts persons.to_json }
