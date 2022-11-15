@@ -15,6 +15,7 @@ class App
     @books = []
     @rentals = []
     @person = []
+    @rental_json = []
   end
 
   def load
@@ -33,6 +34,13 @@ class App
       else
         @person.push(Teacher.new(person['name'], person['age'], person['parent_permission'], person['specialization']))
       end
+    end
+
+    ## Load Rentals
+    rental_file = File.read('./rental.json')
+    ren = JSON.parse(rental_file)
+    ren.each do |r|
+      @rentals.push(Rental.new(r['date'], @person[r['person_index']], @books[r['book_index']]))
     end
   end
 
