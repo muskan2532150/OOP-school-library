@@ -4,6 +4,9 @@ require 'json'
 def print_opt
   puts 'Welcome to OOP School Library App!'
   display_option = DisplayOption.new
+  File.write('books.json', '[]') unless File.exist?('books.json')
+  File.write('persons.json', '[]') unless File.exist?('persons.json')
+  File.write('rental.json', '[]') unless File.exist?('rental.json')
   display_option.load
   loop do
     display_option.option
