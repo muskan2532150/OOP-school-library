@@ -23,12 +23,12 @@ class App
     books = JSON.parse(file_data)
     books.each do |book|
       @books.push(Book.new(book['Title'], book['Author']))
-    end 
+    end
     ## Load person
     file_data = File.read('persons.json')
     persons = JSON.parse(file_data)
     persons.each do |person|
-      if(person['role'] == 'Student')
+      if person['role'] == 'Student'
         @person.push(Student.new(person['name'], person['age'], person['parent_permission'], person['classroom']))
       else
         @person.push(Teacher.new(person['name'], person['age'], person['parent_permission'], person['specialization']))
