@@ -1,6 +1,25 @@
 module DisplayAll
+
+  def read_book
+    book=[]
+    book=File.read('./JSON/store.json')
+    book
+  end
+
+  def store(obt,bk)
+    outputs = []
+    bk.each do |s|
+      puts s[0]
+      # obj.new(bk[])
+      # outputs.push(gets.chomp)
+    end
+    outputs
+  end
+
   def list_books
-    if @books.length.zero?
+    bk=JSON.parse(read_book) 
+    store(BOOk,bk)
+      if @books.length.zero?
       puts 'No book found'
     else
       puts ''

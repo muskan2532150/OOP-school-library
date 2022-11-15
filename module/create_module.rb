@@ -1,3 +1,5 @@
+require 'json'
+
 module CreateElement
   def inputs(show)
     outputs = []
@@ -12,6 +14,7 @@ module CreateElement
     outputs = inputs(['Title: ', 'Author: '])
     book = Book.new(outputs[0], outputs[1])
     @books.push(book) unless @books.include?(book)
+    File.write('./JSON/store.json',@books.to_json,mode:"a")
     puts 'Record is created successfully!!'
   end
 

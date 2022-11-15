@@ -6,10 +6,12 @@ require_relative 'rental'
 
 require_relative 'display_module'
 require_relative 'create_module'
+require_relative 'load_file'
 
 class App
   include DisplayAll
   include CreateElement
+  
   def initialize
     @books = []
     @rentals = []
