@@ -32,6 +32,8 @@ module CreateElement
   def create_rentals
     puts 'Select a book from following list by number'
     list_books
+    return unless @books != []
+
     ch = gets.chomp.to_i
     puts 'Select a person with the following list by number'
     list_persons

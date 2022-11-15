@@ -1,4 +1,4 @@
-require './option'
+require './module/option'
 
 def print_opt
   puts 'Welcome to OOP School Library App!'
