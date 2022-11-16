@@ -1,4 +1,4 @@
-require './decorator'
+require './module/decorator'
 
 describe Decorator do
   it 'correct_name method ' do

@@ -1,4 +1,4 @@
-require './capitalize_decorator'
+require './module/capitalize_decorator'
 
 describe CapitalizeDecorator do
   it 'correct_name method ' do

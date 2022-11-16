@@ -42,7 +42,7 @@ module CreateElement
     selected_people = gets.chomp.to_i
     puts ''
     date = inputs(['Date: '])
-    @rental_data.push({"date"=>date,"person_id"=>selected_people,"bk_id"=>ch})
+    @rental_data.push({ 'date' => date, 'person_id' => selected_people, 'bk_id' => ch })
     rental = Rental.new(date, @person[selected_people], @books[ch])
     @rentals.push(rental) unless @rentals.include?(rental)
     puts 'Record is created successfully!!'
