@@ -6,7 +6,6 @@ require_relative 'rental'
 
 require_relative 'display_module'
 require_relative 'create_module'
-require_relative 'load_file'
 
 class App
   include DisplayAll
@@ -48,5 +47,6 @@ class App
       @person.push(Student.new(person["name"],person["age"],person["parent_permission"],person["classroom"])) if person.key?("Classroom")
       @person.push(Teacher.new(person["name"],person["age"],person["parent_permission"],person["specialization"])) if person.key?("specialization")
     end
+  end
 
 end
