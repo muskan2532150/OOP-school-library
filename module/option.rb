@@ -48,6 +48,7 @@ class DisplayOption
     when '6'
       @method.list_rentals
     when '7'
+      store_all_data
       puts ''
       print 'Thank you for using this App!!!'
     else

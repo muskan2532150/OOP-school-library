@@ -14,7 +14,6 @@ module CreateElement
     outputs = inputs(['Title: ', 'Author: '])
     book = Book.new(outputs[0], outputs[1])
     @books.push(book) unless @books.include?(book)
-    File.write('./JSON/store.json',@books.to_json,mode:"a")
     puts 'Record is created successfully!!'
   end
 
@@ -43,6 +42,7 @@ module CreateElement
     selected_people = gets.chomp.to_i
     puts ''
     date = inputs(['Date: '])
+    @rental_data.push({"date"=>date,"person_id"=>selected_people,"bk_id"=>ch})
     rental = Rental.new(date, @person[selected_people], @books[ch])
     @rentals.push(rental) unless @rentals.include?(rental)
     puts 'Record is created successfully!!'
