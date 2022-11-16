@@ -10,7 +10,7 @@ describe Book do
       allow(person2).to receive(:rentals) { [] }
       book = Book.new('Rich dad poor dad', 'Robert')
       book.add_rental(person, '2020/9/9')
-      book.add_rental(person2, '2020/9/9') 
+      book.add_rental(person2, '2020/9/9')
       number_of_rentals = book.rentals.length
       expect(number_of_rentals).to eq 2
     end
