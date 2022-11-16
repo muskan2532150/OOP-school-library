@@ -1,7 +1,7 @@
 require './person'
 require './rental'
 
-describe Book do
+describe Person do
   context 'test add_rental method' do
     it 'the renatals array should have length of 1 after add_rental is called' do
       book = double('book')
